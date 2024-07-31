@@ -124,11 +124,13 @@ ul {
   align-items: center;
   margin-bottom: 15px;
 }
+
 .contact-item img {
   color:#3f51b5;
-  width: 30px; 
-  height: 30px;
+  width: 32px; 
+  height: 32px;
   margin-right: 10px;
+  float: left;
 }
 
 .contact-link {
