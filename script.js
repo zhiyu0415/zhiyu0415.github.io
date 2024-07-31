@@ -4,9 +4,6 @@ var nav = document.getElementById("nav");
 var isNavScrolled = false;
 
 function init() {
-    var email = document.getElementById("email");
-    email.addEventListener("click",toggleEmailDialog,false);
-
     document.addEventListener("scroll",scrollHandler);
     scrollHandler();
 
@@ -24,16 +21,6 @@ function init() {
     });
 }
 
-function toggleEmailDialog(){
-    var email_dialog = document.getElementById("email_dialog").style;
-
-    if(email_dialog.display == "block"){
-        email_dialog.display = "none";
-    }
-    else{
-        email_dialog.display = "block";
-    }
-}
 
 function scrollHandler(){
     var scrollHeight = document.documentElement.scrollTop||document.body.scrollTop;

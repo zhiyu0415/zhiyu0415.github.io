@@ -101,11 +101,10 @@ ul {
 
 #fjcu {
   display: inline-block;
-  height: 20px;
+  height: 30px;
   vertical-align: middle;
   padding-right: 20px;
 }
-
 
 .li {
   display: list-item;
@@ -121,8 +120,9 @@ ul {
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: left;
   margin-bottom: 15px;
+  width: 200px;
 }
 
 .contact-item img {
@@ -130,7 +130,7 @@ ul {
   width: 32px; 
   height: 32px;
   margin-right: 10px;
-  float: left;
+
 }
 
 .contact-link {
@@ -140,9 +140,19 @@ ul {
   line-height: 30px;
 }
 
+.education-content {
+  text-align: left; 
+}
+
+.education-container {
+  display: flex;
+  align-items: center;
+}
+
 .experience-list {
   list-style: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap:10px;
+  text-align:left;
 }
