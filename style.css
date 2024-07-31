@@ -104,13 +104,9 @@ ul {
   padding-right: 20px;
 }
 
-.education-list {
-  list-style: none; 
-  display: flex;
-  flex-direction: column; 
-  gap: 10px; 
-}
 
-.education-list li {
-  display: flex;
+.li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  unicode-bidi: isolate;
 }
