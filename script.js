@@ -1,19 +1,69 @@
-// Get all navigation links
-const navItems = document.querySelectorAll('.nav_item');
+window.addEventListener("load",init);
 
-// Add click event listener to each link
-navItems.forEach(item => {
-  item.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent default link behavior
+var nav = document.getElementById("nav");
+var isNavScrolled = false;
 
-    // Get the target section ID from the data-page attribute
-    const targetSection = this.dataset.page;
+function init() {
+    var email = document.getElementById("email");
+    email.addEventListener("click",toggleEmailDialog,false);
 
-    // Smooth scroll to the target section
-    document.querySelector(targetSection).scrollIntoView({ behavior: 'smooth' });
+    document.addEventListener("scroll",scrollHandler);
+    scrollHandler();
 
-    // Update active class (remove active class from other items)
-    navItems.forEach(navItem => navItem.classList.remove('nav_active'));
-    this.classList.add('nav_active'); 
-  });
-});
+    $(".nav_item").on('click', function (e) {
+        
+        var tag = this.getAttribute("data-page");
+        // $(".nav_item").removeClass("nav_active");
+        // this.classList.add("nav_active");
+      
+        $('html, body').stop().animate({
+            'scrollTop': $(tag).offset().top
+        }, 500, 'swing', function () {
+            window.location.hash = tag;
+        });
+    });
+}
+
+function toggleEmailDialog(){
+    var email_dialog = document.getElementById("email_dialog").style;
+
+    if(email_dialog.display == "block"){
+        email_dialog.display = "none";
+    }
+    else{
+        email_dialog.display = "block";
+    }
+}
+
+function scrollHandler(){
+    var scrollHeight = document.documentElement.scrollTop||document.body.scrollTop;
+
+    if(isNavScrolled && scrollHeight<=1){
+        isNavScrolled = false;
+        // nav.style.boxShadow = "none";
+        nav.style.backgroundColor = "rgba(0,0,0,0)";
+    }
+    else if(!isNavScrolled && scrollHeight>0){
+        isNavScrolled = true;
+        // nav.style.boxShadow = "0px -1px 9px 1px #444";
+        nav.style.backgroundColor = "rgba(0,0,0,    0.25)";
+    }
+
+    onScroll(scrollHeight);
+}
+
+function onScroll(scrollHeight){
+    
+    $(".nav_item").each(function () {
+        var tag = this.getAttribute("data-page");
+        
+        var refElement = $(tag);
+        if (refElement.position().top <= scrollHeight+1 && refElement.position().top + refElement.height() > scrollHeight) {
+            $(".nav_item").removeClass("nav_active");
+            this.classList.add("nav_active");
+        }
+        else{
+            this.classList.remove("nav_active");
+        }
+    });
+}
