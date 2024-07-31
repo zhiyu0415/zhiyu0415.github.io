@@ -4,6 +4,8 @@ body {
   font-family: sans-serif;
   margin: 0;
   background-color: #f8f8f8; /* Light gray background */
+  display: flex;
+  flex-direction: column;
 }
 
 .navbar {
@@ -128,7 +130,6 @@ ul {
 }
 
 .icon-email {
-  background-image: url('https://www.svgrepo.com/show/303241/email.svg'); /* Replace with your email icon URL */
   background-size: cover;
 }
 
@@ -143,11 +144,13 @@ ul {
 }
 
 .icon-phone {
-  background-image: url('https://www.svgrepo.com/show/247952/phone.svg'); /* Replace with your phone icon URL */
+  background-image: url('https://fonts.google.com/icons?selected=Material+Symbols+Outlined:call:FILL@0;wght@700;GRAD@0;opsz@20&icon.size=20&icon.color=%233f51b5&icon.platform=web&icon.query=phone&noto.query=line'); /* Replace with your phone icon URL */
   background-size: cover;
 }
 
 .contact-link {
-  color: #eee;
+  color: #333;
   text-decoration: none;
+  font-size: 16px;
+  line-height: 30px;
 }
