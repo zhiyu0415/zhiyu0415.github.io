@@ -128,18 +128,22 @@ ul {
 }
 
 .icon-email {
+  background-image: url('https://www.svgrepo.com/show/303241/email.svg'); /* Replace with your email icon URL */
   background-size: cover;
 }
 
 .icon-line {
+  background-image: url('https://www.svgrepo.com/show/247956/line.svg'); /* Replace with your LINE icon URL */
   background-size: cover;
 }
 
 .icon-github {
+  background-image: url('https://www.svgrepo.com/show/303229/github.svg'); /* Replace with your GitHub icon URL */
   background-size: cover;
 }
 
 .icon-phone {
+  background-image: url('https://www.svgrepo.com/show/247952/phone.svg'); /* Replace with your phone icon URL */
   background-size: cover;
 }
 
