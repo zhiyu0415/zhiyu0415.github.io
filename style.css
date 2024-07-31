@@ -115,6 +115,8 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .contact-item {
@@ -122,13 +124,12 @@ ul {
   align-items: center;
   margin-bottom: 15px;
 }
-
-.icon {
+.contact-item img{
+  color:#3f51b5;
   width: 30px; 
   height: 30px;
   margin-right: 10px;
 }
-
 
 .contact-link {
   color: #333;
