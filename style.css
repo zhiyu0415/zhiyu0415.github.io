@@ -1,75 +1,102 @@
-/* 基本樣式 */
+/* style.css */
+
 body {
-    font-family: sans-serif;
-    margin: 0;
-  }
-  
-  .navbar {
-    background-color: #baaaffcc;
-    color: #333;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-  }
-  
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .logo {
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-  }
-  
-  .nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
-  
-  .nav-links a:hover {
-    color: #f0f0f0;
-  }
-  
-  
-  /* 響應式設計 (針對手機) */
-  @media (max-width: 768px) {
-    .nav-links {
-      display: none;
-    }
-  
-    .nav-links.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      padding: 20px;
-    }
-  
-    .nav-links.active li {
-      margin-bottom: 10px;
-    }
-  }
+  font-family: sans-serif;
+  margin: 0;
+  background-color: #f8f8f8; /* Light gray background */
+}
+
+.navbar {
+  background-color: #3f51b5; /* Primary purple color */
+  color: #fff;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.nav_item {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav_item:hover {
+  color: #d500f9; /* Darker purple on hover */
+}
+
+.nav_active {
+  color: #d500f9; /* Darker purple for active tab */
+}
+
+/* Section Styles */
+.section {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #3f51b5; /* Primary purple for titles */
+}
+
+/* About Section Styles */
+.article {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.about-secondary-color {
+  color: #673ab7; /* Secondary purple color */
+}
+
+.article-line {
+  margin: 10px 0;
+  width: 50px;
+  border: 2px solid #673ab7; /* Secondary purple for lines */
+}
+
+.article-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#article-list {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+/* Skill Section Styles */
+/* Add styles for the skill section if needed */
+
+/* Project Section Styles */
+/* Add styles for the project section if needed */
