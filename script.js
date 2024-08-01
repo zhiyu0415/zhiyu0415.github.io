@@ -54,3 +54,20 @@ function onScroll(scrollHeight){
         }
     });
 }
+
+const navItems = document.querySelectorAll('.nav_item');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const targetPage = item.dataset.page;
+    const targetSection = document.querySelector(targetPage);
+
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+
+    navItems.forEach(navItem => {
+      navItem.classList.remove('nav_active');
+    });
+
+    item.classList.add('nav_active'); 
+  });
+});
