@@ -1,73 +1,31 @@
-window.addEventListener("load",init);
+window.addEventListener("load", init);
 
 var nav = document.getElementById("nav");
 var isNavScrolled = false;
 
 function init() {
-    document.addEventListener("scroll",scrollHandler);
-    scrollHandler();
+    const navItems = document.querySelectorAll('.nav_item');
 
-    $(".nav_item").on('click', function (e) {
-        
-        var tag = this.getAttribute("data-page");
-        // $(".nav_item").removeClass("nav_active");
-        // this.classList.add("nav_active");
-      
-        $('html, body').stop().animate({
-            'scrollTop': $(tag).offset().top
-        }, 500, 'swing', function () {
-            window.location.hash = tag;
+    navItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const targetPage = item.dataset.page;
+            const targetSection = document.querySelector(targetPage);
+
+            //移動到section
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+
+            navItems.forEach(navItem => {
+                navItem.classList.remove('nav_active');
+            });
+            item.classList.add('nav_active'); 
+
+            // 觸發section title 的動畫
+            const sectionTitle = targetSection.querySelector('.section-title');
+            if (sectionTitle) {
+                sectionTitle.classList.remove('animated'); // 初始化
+                void sectionTitle.offsetWidth; // 重新觸發
+                sectionTitle.classList.add('animated');
+            }
         });
     });
 }
-
-
-function scrollHandler(){
-    var scrollHeight = document.documentElement.scrollTop||document.body.scrollTop;
-
-    if(isNavScrolled && scrollHeight<=1){
-        isNavScrolled = false;
-        // nav.style.boxShadow = "none";
-        nav.style.backgroundColor = "rgba(0,0,0,0)";
-    }
-    else if(!isNavScrolled && scrollHeight>0){
-        isNavScrolled = true;
-        // nav.style.boxShadow = "0px -1px 9px 1px #444";
-        nav.style.backgroundColor = "rgba(0,0,0,    0.25)";
-    }
-
-    onScroll(scrollHeight);
-}
-
-function onScroll(scrollHeight){
-    
-    $(".nav_item").each(function () {
-        var tag = this.getAttribute("data-page");
-        
-        var refElement = $(tag);
-        if (refElement.position().top <= scrollHeight+1 && refElement.position().top + refElement.height() > scrollHeight) {
-            $(".nav_item").removeClass("nav_active");
-            this.classList.add("nav_active");
-        }
-        else{
-            this.classList.remove("nav_active");
-        }
-    });
-}
-
-const navItems = document.querySelectorAll('.nav_item');
-
-navItems.forEach(item => {
-  item.addEventListener('click', () => {
-    const targetPage = item.dataset.page;
-    const targetSection = document.querySelector(targetPage);
-
-    targetSection.scrollIntoView({ behavior: 'smooth' });
-
-    navItems.forEach(navItem => {
-      navItem.classList.remove('nav_active');
-    });
-
-    item.classList.add('nav_active'); 
-  });
-});
