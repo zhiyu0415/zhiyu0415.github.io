@@ -1,123 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
 <head>
-  <title>zhiyu's github</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zhiyu0415 的作品集</title>
+
+  <!-- SEO 與社群分享 Meta 標籤 -->
+  <meta name="description" content="Zhiyu0415 的作品集與公開程式專案展示。">
+  <meta property="og:title" content="Zhiyu0415 的作品集">
+  <meta property="og:description" content="Zhiyu0415 的 GitHub 專案展示。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zhiyu0415.github.io/">
+  <!-- 如果有設定圖可以加：<meta property="og:image" content="https://..."> -->
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="logo">我的網站</a>
-      <ul>
-        <li class="nav_item" data-page="#home-section">HOME</li>
-        <li class="nav_item nav_active" data-page="#about-section">ABOUT</li>
-        <li class="nav_item" data-page="#skill-section">SKILL</li>
-        <li class="nav_item" data-page="#project-section">PROJECTS</li>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Zhiyu0415 的作品集</h1>
+      <p><a href="https://github.com/zhiyu0415" class="github-link">github.com/zhiyu0415</a></p>
+    </div>
+  </header>
+
+  <main class="site-content">
+    <section class="projects-section">
+      <h2>公開專案</h2>
+      <ul class="projects" id="projects-list">
+        <li class="loading">正在載入專案…</li>
       </ul>
-    </div>
-  </nav>
+    </section>
+  </main>
 
+  <footer class="site-footer">
+    &copy; 2025 Zhiyu0415
+  </footer>
 
-
-  <!--home section-->
-  <section class="section" id="home-section">
-    <h1 class="section-title">HOME</h1>
-    <div class="contact-container">
-      <div class="contact-item">
-        <img id="mail" src="\pic\mail.svg" alt="mail">
-        <div class="contact-text">
-          <a href="mailto:lizyu.0415@gmail.com" class="contact-link">lizyu.0415@gmail.com</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <img id="line" src="\pic\line.svg" alt="line">
-        <div class="contact-text">
-          <a href="https://line.me/ti/p/~yvonne5200415" class="contact-link">yvonne5200415</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <img id="github" src="\pic\github.svg" alt="github">
-        <div class="contact-text">
-          <a href="https://github.com/zhiyu0415" class="contact-link">https://github.com/zhiyu0415</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <img id="phone" src="\pic\phone.svg" alt="phone">
-        <div class="contact-text">
-          <a href="tel:0978-588681" class="contact-link">0978-588681</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--about section-->
-  <section class="section" id="about-section">
-    <h1 class="section-title">ABOUT</h1>
-    <article class="article">
-      <span class="about-secondary-color"style="text-align: left;">
-        <hr class="article-line">
-        <h2 class="article-title">education</h2>
-        <div class="education-container">
-          <img id="fjcu" src="pic\fjcu.png" alt="fjcu" style="display: inline-block;">
-          <div class="education-content" style="display: inline-block;">
-            醫學資訊與創新應用學士學位學程 | 資訊工程學系輔系 | 科技創新創業微學分學程 <br> 
-            Bachelor’s Program in Medical Informatics and Innovative Applications, Fu-Jen Catholic University
-          </div>
-        </div>
-      </span>
-      <div class="article-content">
-      </div>
-    </article>
-
-    <article class="article">
-      <span class="about-secondary-color">
-        <hr class="article-line">
-        <h2 class="article-title">experience</h2>
-        <ul class="experience-list">
-          <li>iThome 鐵人鍊成 <a href="https://ithelp.ithome.com.tw/users/20162525/ironman/6902">[我要成為AI溝通師!30天快速理解 Prompt Engineering]</a> </li>
-          <li>113學年度 大專生研究計畫 [利用大型語言模型提升病例分類準確性與效率]</li>
-          <li>Microsoft AI-900 證照</li>
-          <li>與台北榮總醫院合作畢業專題 [個人醫療照護叮嚀系統]</li>
-          <li>中華資安國際 研發部 實習生</li>
-        </ul>
-      </span>
-      <div class="article-content">
-      </div>
-    </article>
-  </section>
-
-  <!--skill section-->
-  <section class="section" id="skill-section">
-    <div class="content"> 
-    <h1 class="section-title">My Skill</h1>
-    <div class="skill-container">
-      <div class="skill-column">
-        <h2 class="skill-title">前端 Front-end</h2>
-        <div class="skill-item"><img id="html" src="pic\html.svg" alt="html" style="display: inline-block;"><br><b>HTML</b></div>
-        <div class="skill-item"><img id="css" src="pic\css.svg" alt="css" style="display: inline-block;"><br><b>CSS</b></div>
-        <div class="skill-item"><img id="javascript" src="pic\javascript.svg" alt="javascript" style="display: inline-block;"><br><b>Javascript</b></div>
-      </div>
-      <div class="skill-column">
-        <h2 class="skill-title">後端 Back-end</h2>
-        <div class="skill-item"><img id="java" src="pic\java.svg" alt="java" style="display: inline-block;"><br><b>JAVA</b></div>
-        <div class="skill-item"><img id="c-language" src="pic\c-language.svg" alt="c-language" style="display: inline-block;"><br><b>C Language</b></div>
-        <div class="skill-item"><img id="php" src="pic\php.svg" alt="php" style="display: inline-block;"><br><b>PHP</b></div>
-      </div>
-      <div class="skill-column">
-        <h2 class="skill-title">開發環境 Development</h2>
-        <div class="skill-item"><img id="vscode" src="pic\vscode.svg" alt="vscode" style="display: inline-block;"><br><b>Visual Studio Code</b></div>
-        <div class="skill-item"><img id="intelliJ" src="pic\intelliJ.svg" alt="intelliJ" style="display: inline-block;"><br><b>IntelliJ</b></div>
-        <div class="skill-item"><img id="phpstorm" src="pic\phpstorm.svg" alt="phpstorm" style="display: inline-block;"><br><b>PhpStorm</b></div>
-      </div>
-    </div>
-  </section>
-
-  <!--project section-->
-  <section class="section" id="project-section">
-    <h1 class="section-title">My Project</h1>
-  </section>
-
-  <!-- Link to your script.js file -->
   <script src="script.js"></script>
 </body>
 </html>
