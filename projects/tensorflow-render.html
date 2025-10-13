@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>花卉影像分類模型 | Zhiyu0415 的作品集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>花卉影像分類模型</h1>
+      <h3>TensorFlow 遷移式學習與 Render 雲端部署成果</h3>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>🌸 專案簡介</h2>
+      <p>
+        此專案使用 <strong>TensorFlow</strong> 深度學習框架建立花卉影像分類模型，透過
+        <strong>Xception 網路結構</strong> 進行遷移式學習（Transfer Learning），
+        於五類花卉（杏花、梨花、櫻花、薰衣草、鬱金香）間達到 <strong>93.3% 的分類準確率</strong>。
+      </p>
+    </section>
+
+    <section>
+      <h2>🧠 模型訓練與資料集</h2>
+      <ul>
+        <li>資料蒐集：自行撰寫爬蟲程式，蒐集 400 張花卉影像。</li>
+        <li>模型設計：採用 <strong>Xception + 全連接層調整</strong>。</li>
+        <li>訓練策略：使用 <strong>ImageDataGenerator</strong> 進行資料增強（旋轉、翻轉、縮放）。</li>
+        <li>驗證集準確率：<strong>93.3%</strong>，測試集泛化能力穩定。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>🚀 網頁實作與部署</h2>
+      <p>
+        模型部署於 <strong>Render 雲端平台</strong>，提供即時推論介面。
+        使用者可直接上傳圖片，伺服器將進行預測並顯示辨識結果。
+      </p>
+      <div class="demo-box">
+        🌐 <strong>線上展示：</strong><a href="https://four10570164.onrender.com/" target="_blank" class="demo-link">前往花卉辨識網站</a>
+        <p style="color:#555; margin-top:8px;">
+          ⚠️ 由於 Render 平台屬於免費服務，伺服器在長時間未使用後會進入「休眠」狀態，  
+          初次開啟網站時需等待約 <strong>30~60 秒</strong> 以重新啟動伺服器。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>💡 技術亮點</h2>
+      <ul>
+        <li>利用 <strong>Xception 模型遷移學習</strong> 提升小資料集的效能。</li>
+        <li>使用 <strong>Flask</strong> 建立推論 API，整合前端影像上傳。</li>
+        <li>部署於 Render 平台，支援即時圖像辨識。</li>
+      </ul>
+    </section>
+
+    <section class="screenshot-gallery">
+      <h2>📊 成果與展示</h2>
+      <p>
+        模型能快速判斷輸入影像屬於五大花卉之一，
+        並於網站介面上即時顯示辨識結果。這項成果展示了
+        <strong>AI 圖像分類在實際應用的可行性與輕量化部署能力</strong>。
+      </p>
+      <figure>
+          <img src="../assets/flower_demo_1.png" alt="平台首頁">
+          <figcaption>▲ 平台首頁畫面，使用者可利用select image 上傳要分辨的花卉圖片
+          </figcaption>
+      </figure>
+      
+      <figure>
+          <img src="../assets/flower_demo_2.png" alt="分析結果">
+          <figcaption>▲  圖片成功上傳，系統正在分析中。若長時間無回應，可能是因伺服器資源不足造成，請稍後重新嘗試。</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>🔗 相關連結</h2>
+      <ul>
+        <li><a href="https://github.com/zhiyu0415/tensorflow-render" target="_blank">GitHub 專案頁面</a></li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-btn">← 返回首頁</a>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 Zhiyu0415
+  </footer>
+</body>
+</html>

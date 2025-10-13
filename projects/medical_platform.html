@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>病歷分類與分析平台 | Zhiyu0415 的作品集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>病歷分類與分析平台</h1>
+      <h3>大專生研究計畫成果展示</h3>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>📘 專案簡介</h2>
+      <p>
+        本專案為大專生研究計畫成果，主題為
+        <strong>「利用大型語言模型提升病歷分類準確性與效率的研究」</strong>。
+        目標是建立一個可進行醫療病歷自動分類與關鍵詞提取的平台，
+        融合自然語言處理 (NLP) 與視覺化技術，輔助臨床決策。
+      </p>
+    </section>
+
+    <section>
+      <h2>🧠 系統架構</h2>
+      <ul>
+        <li><strong>前端 (UI)：</strong> 使用 React 框架，提供文件上傳與即時分析結果呈現。</li>
+        <li><strong>後端 (API)：</strong> 以 FastAPI 建構，處理病歷文本分析請求。</li>
+        <li><strong>模型分析核心：</strong> 採用經優化的 BERT-base 模型進行語意理解與分類。</li>
+        <li><strong>資料來源：</strong> Kaggle「Medical Transcriptions」醫療文本資料集。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>⚙️ 技術亮點</h2>
+      <ul>
+        <li>結合 <strong>LoRA</strong> 與 <strong>梯度累積 (gradient accumulation)</strong> 優化模型訓練效率。</li>
+        <li>使用 <strong>Tokenizer</strong> 進行醫學文本標記化，減少 Loss 偏差。</li>
+        <li>利用 <strong>FastAPI + React</strong> 建構可互動式病歷分析平台。</li>
+        <li>整合 <strong>可視化圖表</strong> 呈現醫學關鍵詞頻率與分類結果。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>📊 成果與貢獻</h2>
+      <p>
+        平台能精準識別病歷中的醫學專業術語，並透過圖表分析結果，
+        讓醫療人員快速掌握資料重點，提升病歷處理與臨床決策效率。
+        在測試資料上模型分類準確率達 <strong>90% 以上</strong>，
+        並成功部署於雲端環境進行推論。
+      </p>
+    </section>
+
+    <section>
+        <h2>🌐 網頁成果展示</h2>
+        <p>以下是本平台的實際操作畫面與展示成果：</p>
+        
+    </section>
+
+    <section>
+      <h2>🔗 相關連結</h2>
+      <ul>
+        <li><a href="https://github.com/zhiyu0415/medical_platform" target="_blank">GitHub 專案頁面</a></li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-btn">← 返回首頁</a>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 Zhiyu0415
+  </footer>
+</body>
+</html>

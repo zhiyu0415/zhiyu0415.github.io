@@ -1,0 +1,184 @@
+/* === 全域設定 === */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", "Segoe UI", "Noto Sans TC", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* === Header 樣式 === */
+.site-header {
+  background-color: #0366d6;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+.site-header p {
+  margin: 6px 0 0;
+  font-size: 1em;
+}
+
+/* === Footer 樣式 === */
+.site-footer {
+  text-align: center;
+  font-size: 0.9em;
+  color: #888;
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 60px;
+}
+
+/* === 主內容樣式 === */
+main {
+  max-width: 900px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* === 標題與段落 === */
+h2 {
+  color: #222;
+  margin-top: 24px;
+  border-left: 4px solid #0366d6;
+  padding-left: 8px;
+}
+p {
+  color: #444;
+  margin-top: 10px;
+}
+
+/* === 列表樣式 === */
+ul {
+  margin: 10px 0 10px 20px;
+}
+li {
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* === 返回按鈕 === */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 8px 16px;
+  background-color: #0366d6;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.25s;
+}
+.back-btn:hover {
+  background-color: #024c9f;
+}
+
+/* === 按鈕通用樣式（可複用於 GitHub 或專案介紹） === */
+.btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-right: 8px;
+  background-color: #0366d6;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #024c9f;
+}
+.btn.disabled {
+  background-color: #aaa;
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* === 卡片與分類區塊（for index.html 使用） === */
+.category-block {
+  margin-bottom: 40px;
+}
+.category-title {
+  font-size: 1.4em;
+  border-left: 5px solid #0366d6;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: #0366d6;
+}
+.projects {
+  list-style: none;
+  padding: 0;
+}
+.project-card {
+  background: #fff;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+.project-card h3 {
+  margin: 0 0 6px;
+}
+.project-card p {
+  margin: 4px 0 10px;
+}
+.meta {
+  font-size: 0.9em;
+  color: #666;
+}
+.btn-container {
+  margin-top: 10px;
+}
+
+/* === 網頁成果展示區 === */
+.screenshot-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.screenshot-gallery figure {
+  width: 360px;              
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px;
+  text-align: center;
+}
+
+.screenshot-gallery img {
+  width: auto;
+  height: 360px;
+  object-fit: cover;
+  margin: 0 auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.screenshot-gallery img:hover {
+  transform: scale(1.03);
+}
+
+.screenshot-gallery figcaption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #555;
+  text-align: center;
+  line-height: 1.5;
+}
+

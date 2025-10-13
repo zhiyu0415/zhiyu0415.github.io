@@ -2,10 +2,10 @@ const username = "zhiyu0415";
 const projectsListEl = document.getElementById("projects-list");
 
 const categories = {
-  "AI / ML 專案": ["AI", "ML", "bert", "flower", "skin", "medical", "llm"],
-  "網站 / 系統開發": ["web", "html", "css", "fastapi", "system", "project", "wix", "hospital", "care"],
-  "APP / 遊戲開發": ["android", "app", "pygame", "game", "pacman"],
-  "程式語言練習": ["c", "cpp", "java", "asm", "ubuntu", "practice"]
+  "AI / ML 專案": ["medical_platform", "tensorflow-render", "皮膚影像分類模型"],
+  "網站 / 系統開發": ["Medical-Helper", "WIX", "ithome2023","medicalHelper"],
+  "APP / 遊戲開發": ["APP_AddressBook", "money", "mealapp", "App_PaperScissorStone", "App_Riddle"],
+  "程式語言練習": ["CPractice", "MASM", "Vulnerability-scanning", "myproject2", "myproject9", "order","box","myproject"]
 };
 
 // === 建立分類區塊 ===
@@ -63,7 +63,6 @@ async function createProjectCard(repo) {
     const res = await fetch(infoURL, { method: "HEAD" });
     if (res.ok) {
       infoBtn.href = infoURL;
-      infoBtn.target = "_blank";
     } else {
       infoBtn.classList.add("disabled");
       infoBtn.textContent = "尚未建立";
@@ -76,9 +75,16 @@ async function createProjectCard(repo) {
   // GitHub 按鈕
   const gitBtn = document.createElement("a");
   gitBtn.className = "btn github-btn";
-  gitBtn.textContent = "GitHub";
-  gitBtn.href = repo.html_url;
-  gitBtn.target = "_blank";
+  if (repo.html_url) {
+    gitBtn.textContent = "GitHub";
+    gitBtn.href = repo.html_url;
+    gitBtn.target = "_blank";
+  } else {
+    gitBtn.textContent = "沒有公開專案";
+    gitBtn.classList.add("disabled");
+    gitBtn.href = "#";
+    gitBtn.onclick = (e) => e.preventDefault(); // 防止點擊
+  }
 
   btnContainer.appendChild(infoBtn);
   btnContainer.appendChild(gitBtn);
@@ -89,15 +95,15 @@ async function createProjectCard(repo) {
 
 // === 判斷分類 ===
 function getCategory(repo) {
-  const name = repo.name.toLowerCase();
-  const desc = (repo.description || "").toLowerCase();
-  for (const [category, keywords] of Object.entries(categories)) {
-    if (keywords.some(k => name.includes(k) || desc.includes(k))) {
+  const name = repo.name; // 保留原始大小寫比對（可依需求改為小寫）
+  for (const [category, exactNames] of Object.entries(categories)) {
+    if (exactNames.includes(name)) {
       return category;
     }
   }
   return "其他專案";
 }
+
 
 // === 載入 GitHub 專案 ===
 async function loadProjects() {
@@ -108,25 +114,54 @@ async function loadProjects() {
     const repos = await response.json();
     projectsListEl.innerHTML = "";
 
-    if (repos && repos.length > 0) {
-      const grouped = {};
+    // 建立 repo 名稱對應表
+    const repoMap = {};
+    for (const repo of repos) {
+      repoMap[repo.name] = repo;
+    }
 
-      for (const repo of repos) {
-        const cat = getCategory(repo);
-        if (!grouped[cat]) grouped[cat] = [];
-        grouped[cat].push(repo);
+    let hasAnyProject = false;
+
+    // 處理 categories 中的每個分類
+    for (const [categoryName, projectNames] of Object.entries(categories)) {
+      const ul = createCategoryBlock(categoryName);
+      let hasValidCard = false;
+
+      for (const name of projectNames) {
+        const repo = repoMap[name];
+
+        const card = await createProjectCard(repo || {
+          name: name,
+          description: "",
+          updated_at: new Date().toISOString(),
+          language: null,
+          html_url: null
+        });
+
+        ul.appendChild(card);
+        hasValidCard = true;
+        hasAnyProject = true;
       }
 
-      for (const catName of Object.keys(categories).concat("其他專案")) {
-        if (grouped[catName] && grouped[catName].length > 0) {
-          const ul = createCategoryBlock(catName);
-          for (const repo of grouped[catName]) {
-            const card = await createProjectCard(repo);
-            ul.appendChild(card);
-          }
-        }
+      if (!hasValidCard) {
+        ul.innerHTML = "<li>沒有對應的公開專案</li>";
       }
-    } else {
+    }
+
+    // 處理「其他專案」
+    const usedNames = new Set(Object.values(categories).flat());
+    const otherRepos = repos.filter(repo => !usedNames.has(repo.name));
+
+    if (otherRepos.length > 0) {
+      const ul = createCategoryBlock("其他專案");
+      for (const repo of otherRepos) {
+        const card = await createProjectCard(repo);
+        ul.appendChild(card);
+      }
+      hasAnyProject = true;
+    }
+
+    if (!hasAnyProject) {
       projectsListEl.innerHTML = "<li>目前沒有公開專案</li>";
     }
   } catch (err) {
@@ -134,5 +169,6 @@ async function loadProjects() {
     projectsListEl.innerHTML = `<li class="loading">無法載入專案（${err.message}）</li>`;
   }
 }
+
 
 document.addEventListener("DOMContentLoaded", loadProjects);
