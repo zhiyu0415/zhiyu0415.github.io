@@ -1,4 +1,4 @@
-/* 通用重置與盒模型 */
+/* === 基礎重置 === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,16 +15,19 @@ body {
   flex-direction: column;
 }
 
+/* === Header === */
 .site-header {
-  background-color: #0366d6;
+  background: linear-gradient(135deg, #0366d6, #004b9f);
   color: white;
-  padding: 40px 20px;
+  padding: 48px 20px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .header-inner h1 {
   margin-bottom: 8px;
-  font-size: 2em;
+  font-size: 2.2em;
+  letter-spacing: 1px;
 }
 
 .github-link {
@@ -32,73 +35,126 @@ body {
   text-decoration: none;
   font-size: 0.95em;
 }
-
 .github-link:hover {
   text-decoration: underline;
 }
 
+/* === 主內容區 === */
 .site-content {
   flex: 1;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px;
 }
 
-.projects-section h2 {
-  margin-bottom: 20px;
+/* === 分類標題 === */
+.category-title {
   font-size: 1.5em;
-  color: #222;
+  color: #0366d6;
+  margin: 40px 0 16px 0;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
 }
 
+/* === 專案列表 === */
 .projects {
   list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-.projects li {
-  margin-bottom: 16px;
-  padding: 12px;
-  background: white;
-  border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* === 專案卡片 === */
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.projects li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.projects li a {
-  font-size: 1.1em;
+.project-card h3 {
+  font-size: 1.2em;
   color: #0366d6;
-  text-decoration: none;
+  margin-bottom: 8px;
 }
 
-.projects li a:hover {
-  text-decoration: underline;
-}
-
-.projects li .description {
-  display: block;
-  margin-top: 6px;
-  color: #555;
+.project-card p {
   font-size: 0.95em;
+  color: #555;
 }
 
-.projects li .meta {
+.project-card .meta {
   margin-top: 8px;
   font-size: 0.85em;
   color: #888;
 }
 
+/* === 按鈕樣式 === */
+.btn-container {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: background-color 0.25s, transform 0.2s;
+}
+
+/* === 禁用按鈕樣式 === */
+.btn.disabled {
+  background-color: #ccc !important;
+  color: #666 !important;
+  border: 1px solid #aaa !important;
+  cursor: not-allowed;
+  pointer-events: none; /* 禁止點擊 */
+  transform: none !important;
+}
+
+.info-btn {
+  background-color: #0366d6;
+  color: #fff;
+}
+.info-btn:hover {
+  background-color: #024c9f;
+  transform: translateY(-2px);
+}
+
+.github-btn {
+  background-color: #fff;
+  color: #0366d6;
+  border: 1px solid #0366d6;
+}
+.github-btn:hover {
+  background-color: #e6f0ff;
+  transform: translateY(-2px);
+}
+
+/* === 載入中文字 === */
 .loading {
   text-align: center;
   color: #777;
+  padding: 30px 0;
+  font-size: 1em;
 }
 
+/* === 頁尾 === */
 .site-footer {
   text-align: center;
-  padding: 20px;
+  padding: 24px;
   font-size: 0.9em;
   color: #666;
+  border-top: 1px solid #ddd;
+  background-color: #f0f2f5;
 }

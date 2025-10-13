@@ -8,34 +8,44 @@
   <!-- SEO 與社群分享 Meta 標籤 -->
   <meta name="description" content="Zhiyu0415 的作品集與公開程式專案展示。">
   <meta property="og:title" content="Zhiyu0415 的作品集">
-  <meta property="og:description" content="Zhiyu0415 的 GitHub 專案展示。">
+  <meta property="og:description" content="Zhiyu0415 的 GitHub 專案展示與技術實作。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://zhiyu0415.github.io/">
-  <!-- 如果有設定圖可以加：<meta property="og:image" content="https://..."> -->
+  <meta property="og:locale" content="zh_TW">
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png" />
 </head>
+
 <body>
+  <!-- Header -->
   <header class="site-header">
     <div class="header-inner">
       <h1>Zhiyu0415 的作品集</h1>
-      <p><a href="https://github.com/zhiyu0415" class="github-link">github.com/zhiyu0415</a></p>
+      <p>
+        <a href="https://github.com/zhiyu0415" class="github-link" target="_blank" rel="noopener noreferrer">
+          github.com/zhiyu0415
+        </a>
+      </p>
     </div>
   </header>
 
+  <!-- Main -->
   <main class="site-content">
     <section class="projects-section">
       <h2>公開專案</h2>
-      <ul class="projects" id="projects-list">
-        <li class="loading">正在載入專案…</li>
-      </ul>
+      <div id="projects-list">
+        <p class="loading">正在載入專案…</p>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
-    &copy; 2025 Zhiyu0415
+    &copy; 2025 Zhiyu0415. All rights reserved.
   </footer>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
