@@ -3,9 +3,14 @@ const projectsListEl = document.getElementById("projects-list");
 
 const categories = {
   "AI / ML 專案": ["medical_platform", "tensorflow-render", "皮膚影像分類模型"],
-  "網站 / 系統開發": ["Medical-Helper", "WIX", "ithome2023","medicalHelper"],
+  "網站 / 系統開發": ["Medical-Helper", "WIX", "ithome2023", "medicalHelper"],
   "APP / 遊戲開發": ["APP_AddressBook", "money", "mealapp", "App_PaperScissorStone", "App_Riddle"],
-  "程式語言練習": ["CPractice", "MASM", "Vulnerability-scanning", "myproject2", "myproject9", "order","box","myproject"]
+  "程式語言練習": ["CPractice", "MASM", "Vulnerability-scanning", "myproject2", "myproject9", "order", "box", "myproject"]
+};
+
+const projectPages = {
+  "WIX": "https://yvonneli0415.wixsite.com/website",
+  "ithome2023": "https://ithelp.ithome.com.tw/users/20162525/ironman/6902",
 };
 
 // === 建立分類區塊 ===
@@ -56,22 +61,25 @@ async function createProjectCard(repo) {
   const infoBtn = document.createElement("a");
   infoBtn.className = "btn info-btn";
   infoBtn.textContent = "專案介紹";
-  const infoURL = `/projects/${repo.name}.html`;
+  let infoURL = projectPages[repo.name] || `/projects/${repo.name}.html`;
 
-  try {
-    // 嘗試確認是否存在該 HTML 頁面
-    const res = await fetch(infoURL, { method: "HEAD" });
-    if (res.ok) {
-      infoBtn.href = infoURL;
-    } else {
+  if (projectPages[repo.name]) {
+    infoBtn.href = infoURL;
+    infoBtn.target = "_blank";
+  } else {
+    try {
+      const res = await fetch(infoURL, { method: "HEAD" });
+      if (res.ok) {
+        infoBtn.href = infoURL;
+      } else {
+        infoBtn.classList.add("disabled");
+        infoBtn.textContent = "尚未建立";
+      }
+    } catch {
       infoBtn.classList.add("disabled");
       infoBtn.textContent = "尚未建立";
     }
-  } catch {
-    infoBtn.classList.add("disabled");
-    infoBtn.textContent = "尚未建立";
   }
-
   // GitHub 按鈕
   const gitBtn = document.createElement("a");
   gitBtn.className = "btn github-btn";
@@ -150,7 +158,9 @@ async function loadProjects() {
 
     // 處理「其他專案」
     const usedNames = new Set(Object.values(categories).flat());
-    const otherRepos = repos.filter(repo => !usedNames.has(repo.name));
+    const otherRepos = repos
+      .filter(repo => !usedNames.has(repo.name))
+      .filter(repo => !repo.html_url.includes("github.io"));
 
     if (otherRepos.length > 0) {
       const ul = createCategoryBlock("其他專案");
