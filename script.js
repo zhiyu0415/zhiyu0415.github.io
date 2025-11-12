@@ -13,6 +13,8 @@ const projectPages = {
   "ithome2023": "https://ithelp.ithome.com.tw/users/20162525/ironman/6902",
 };
 
+const excludeRepos = ["BIgData"];
+
 // === 建立分類區塊 ===
 function createCategoryBlock(title) {
   const section = document.createElement("section");
@@ -120,6 +122,8 @@ async function loadProjects() {
     if (!response.ok) throw new Error("GitHub API 回應錯誤 " + response.status);
 
     const repos = await response.json();
+    const validRepos = repos.filter(repo => !excludeRepos.includes(repo.name));
+
     projectsListEl.innerHTML = "";
 
     // 建立 repo 名稱對應表
@@ -158,7 +162,7 @@ async function loadProjects() {
 
     // 處理「其他專案」
     const usedNames = new Set(Object.values(categories).flat());
-    const otherRepos = repos
+    const otherRepos = validRepos
       .filter(repo => !usedNames.has(repo.name))
       .filter(repo => !repo.html_url.includes("github.io"));
 
