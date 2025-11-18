@@ -9,11 +9,15 @@ const categories = {
 };
 
 const projectPages = {
-  "WIX": "https://yvonneli0415.wixsite.com/website",
   "ithome2023": "https://ithelp.ithome.com.tw/users/20162525/ironman/6902",
 };
 
 const excludeRepos = ["BIgData"];
+
+const projectDemos = {
+  "皮膚影像分類模型": "https://your-download-link.com/model.h5",
+  "WIX": "https://yvonneli0415.wixsite.com/website",
+};
 
 // === 建立分類區塊 ===
 function createCategoryBlock(title) {
@@ -88,6 +92,10 @@ async function createProjectCard(repo) {
   if (repo.html_url) {
     gitBtn.textContent = "GitHub";
     gitBtn.href = repo.html_url;
+    gitBtn.target = "_blank";
+  } else if (projectDemos[repo.name]) {
+    gitBtn.textContent = "demo";
+    gitBtn.href = projectDemos[repo.name];
     gitBtn.target = "_blank";
   } else {
     gitBtn.textContent = "沒有公開專案";
