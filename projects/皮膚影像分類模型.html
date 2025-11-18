@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>皮膚病變分類模型 | 黎芷妤 作品集</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>皮膚病變影像分類模型</h1>
+      <h3>深度學習期末專題</h3>
+    </div>
+  </header>
+
+  <main>
+    <!-- 專案簡介 -->
+    <section>
+      <h2>📘 專案簡介</h2>
+      <p>
+        本專題使用 <strong>HAM10000 Skin Lesion Dataset</strong> 建構皮膚病變影像分類模型，
+        針對七種皮膚疾病進行分類，包括 mel、nv、akiec、vasc、bcc、bkl、df。
+        透過 <strong>Xception 卷積神經網路模型</strong>與 Grad-CAM 可視化技術，
+        探討模型對皮膚病變影像的判讀方式與分類效果。
+      </p>
+    </section>
+
+    <!-- 模型訓練與資料集 -->
+    <section>
+      <h2>🧠 模型訓練與資料集</h2>
+      <ul>
+        <li><strong>資料來源：</strong> Kaggle「Skin Cancer MNIST: HAM10000」</li>
+        <li><strong>分類數量：</strong> 七類皮膚病變（mel、nv、akiec、vasc、bcc、bkl、df）</li>
+        <li><strong>資料分割比例：</strong> Train / Valid / Test = 6 : 2 : 2</li>
+        <li><strong>資料增強方法：</strong> 水平翻轉、垂直翻轉、旋轉(5°)、平移(0.1)</li>
+        <li><strong>模型架構：</strong> Xception</li>
+        <li><strong>訓練參數：</strong></li>
+        <ul>
+          <li>第一次：lr = 1e-4，batch = 16，epochs = 10</li>
+          <li>第二次：lr = 1e-6，batch = 16，epochs = 10</li>
+        </ul>
+      </ul>
+    </section>
+
+    <!-- 技術亮點 -->
+    <section>
+      <h2>⚙️ 技術亮點</h2>
+      <ul>
+        <li>使用 <strong>Xception 深度可分離卷積網路</strong> 提升影像分類效率</li>
+        <li>在影像不足的類別上使用資料增強改善模型泛化能力</li>
+        <li>採用 <strong>Grad-CAM</strong> 分析模型關注區域，解釋誤判原因</li>
+        <li>比較不同學習率、batch size 對模型準確率的影響</li>
+      </ul>
+    </section>
+
+    <!-- 成果與貢獻 -->
+    <section>
+      <h2>📊 成果與貢獻</h2>
+      <p>
+        模型最終測試準確率約為 <strong>82.1%</strong>。  
+        Confusion Matrix 顯示 <strong>mel 與 nv 最容易混淆</strong>，主要原因是兩者影像外觀相似。  
+        透過 Grad-CAM 分析可觀察到：
+      </p>
+      <ul>
+        <li>模型在誤判 mel → nv 時，多半因病灶範圍較大</li>
+        <li>誤判 nv → mel 時，通常因中心部位較深</li>
+        <li>資料不平衡導致模型傾向預測 nv</li>
+      </ul>
+      <p>
+        本研究並記錄了不同訓練方式下準確率的變化，發現資料不均衡與資料增強方式（例如垂直翻轉）
+        會明顯影響模型判斷結果。
+      </p>
+    </section>
+
+    <!-- 成果展示 -->
+    <section>
+      <h2>🌐 成果展示</h2>
+      <p>以下展示模型可視化與訓練過程中觀察到的結果：</p>
+      <ul>
+        <li>Confusion Matrix（準確率 0.821）</li>
+        <li>Grad-CAM 視覺化（mel、nv 樣本）</li>
+        <li>不同訓練參數組合下的準確率變化（0.847 → 0.807 → 0.763）</li>
+        <li>極端情況：模型將 mel、df 100% 預測為 nv（資料不均衡影響）</li>
+      </ul>
+    </section>
+
+    <!-- 相關連結 -->
+    <section>
+      <h2>🔗 相關連結</h2>
+      <ul>
+        <li><a href="https://drive.google.com/drive/folders/1pIgYAEgzF4i3hY6yLf-UCJMQ1inJTC1-" target="_blank">期末成果報告書</a></li>
+        <li><a href="https://keras.io/examples/vision/grad_cam/" target="_blank">Grad-CAM 參考資料</a></li>
+        <li><a href="https://www.kaggle.com/kmader/skin-cancer-mnist-ham10000" target="_blank">HAM10000 Dataset</a></li>
+
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-btn">← 返回首頁</a>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 黎芷妤
+  </footer>
+</body>
+</html>
