@@ -15,7 +15,7 @@ const projectPages = {
 const excludeRepos = ["BIgData"];
 
 const projectDemos = {
-  "皮膚影像分類模型": "https://your-download-link.com/model.h5",
+  "皮膚影像分類模型": "assets/深度學習期末專題.docx",
   "WIX": "https://yvonneli0415.wixsite.com/website",
 };
 
